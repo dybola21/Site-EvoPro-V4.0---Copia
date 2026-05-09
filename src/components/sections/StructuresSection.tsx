@@ -8,7 +8,7 @@ export function StructuresSection() {
       name: "Site Institucional",
       category: "SITE PROFISSIONAL",
       goal: "Presença institucional mais forte.",
-      image: "/projects/projeto-sorio.png",
+      image: "/projects/projeto-sorio.webp",
       link: "#"
     },
     {
@@ -79,6 +79,10 @@ export function StructuresSection() {
                         src={project.image} 
                         alt={`Projeto ${project.name}`} 
                         className="w-full h-auto block" 
+                        loading="lazy"
+                        decoding="async"
+                        width="1132"
+                        height="4573"
                       />
                     ) : (
                       <div className="absolute inset-0 m-5 rounded-xl border border-gray-200/80 bg-white/90 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.6)] flex items-center justify-center">
