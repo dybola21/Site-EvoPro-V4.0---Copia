@@ -84,11 +84,11 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative w-full mx-auto mt-6 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[800px]"
+            className="relative w-full mx-auto mt-4 lg:mt-0 h-[500px] sm:h-[560px] lg:h-[800px]"
           >
             {/* The inner container is fixed width and scaled down via CSS transforms.
                 Absolute positioning prevents its unscaled height from blowing up the flex/grid layout. */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col items-center justify-center scale-[0.52] sm:scale-[0.72] lg:scale-100 origin-top">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col items-center justify-center scale-[0.68] sm:scale-[0.78] lg:scale-100 origin-top">
               
               {/* Central connecting hub lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-50 origin-center" viewBox="0 0 500 800">
@@ -172,10 +172,6 @@ export function Hero() {
 
                   {/* Browser Content (Accurate Mini Hero) */}
                   <div className="p-6 flex flex-col items-start text-left relative overflow-hidden h-[220px]">
-                    {/* Background glows */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-24 bg-evo-action/30 blur-3xl rounded-[100%]" />
-                    <div className="absolute bottom-0 right-0 w-40 h-40 bg-evo-cyan/25 blur-3xl rounded-full" />
-                    
                     {/* Mini Grid */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
 
