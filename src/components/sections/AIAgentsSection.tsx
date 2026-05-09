@@ -1,11 +1,9 @@
 import { MessageSquare, Database, Bell, CheckCircle2 } from "lucide-react"
 import { Container } from "../ui/Container"
 import { SectionHeader } from "../ui/SectionHeader"
-import { motion } from "framer-motion"
-import { useIsMobile } from "../../hooks/useIsMobile"
+import { MotionSafe } from "../ui/MotionSafe"
 
 export function AIAgentsSection() {
-  const isMobile = useIsMobile()
   const steps = [
     {
       icon: MessageSquare,
@@ -61,11 +59,11 @@ export function AIAgentsSection() {
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
-                  <motion.div
-                    initial={isMobile ? false : { opacity: 0, y: 20 }}
+                  <MotionSafe
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.15 }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
                     key={index}
                     className="flex flex-row lg:flex-col items-start lg:items-center group"
                   >
@@ -99,18 +97,18 @@ export function AIAgentsSection() {
                         {step.description}
                       </p>
                     </div>
-                  </motion.div>
+                  </MotionSafe>
                 );
               })}
             </div>
           </div>
 
           {/* Minimalist Closing Pill */}
-          <motion.div
-            initial={isMobile ? false : { opacity: 0, y: 10 }}
+          <MotionSafe
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: isMobile ? 0 : 0.5 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-16 md:mt-24 flex items-center justify-center relative z-10"
           >
             <div className="inline-flex items-center gap-4 bg-white/[0.02] border border-white/5 backdrop-blur-sm md:backdrop-blur-md px-6 py-3 rounded-full hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">
@@ -122,7 +120,7 @@ export function AIAgentsSection() {
                 Enquanto sua equipe foca no atendimento, o agente ajuda a manter o processo organizado.
               </span>
             </div>
-          </motion.div>
+          </MotionSafe>
 
         </div>
       </Container>

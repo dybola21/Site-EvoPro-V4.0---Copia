@@ -1,54 +1,48 @@
-import { Suspense, lazy, useEffect } from "react"
+import { useEffect } from "react"
 import { Header } from "./components/sections/Header"
 import { Hero } from "./components/sections/Hero"
-
-// Lazy load para componentes abaixo da dobra (reduz o tamanho do bundle inicial)
-const ProblemSection = lazy(() => import("./components/sections/ProblemSection").then(m => ({ default: m.ProblemSection })))
-const SolutionsSection = lazy(() => import("./components/sections/SolutionsSection").then(m => ({ default: m.SolutionsSection })))
-const WebsiteSection = lazy(() => import("./components/sections/WebsiteSection").then(m => ({ default: m.WebsiteSection })))
-const AIAgentsSection = lazy(() => import("./components/sections/AIAgentsSection").then(m => ({ default: m.AIAgentsSection })))
-const ProcessSection = lazy(() => import("./components/sections/ProcessSection").then(m => ({ default: m.ProcessSection })))
-const StructuresSection = lazy(() => import("./components/sections/StructuresSection").then(m => ({ default: m.StructuresSection })))
-const AboutSection = lazy(() => import("./components/sections/AboutSection").then(m => ({ default: m.AboutSection })))
-const AudienceSection = lazy(() => import("./components/sections/AudienceSection").then(m => ({ default: m.AudienceSection })))
-const FAQSection = lazy(() => import("./components/sections/FAQSection").then(m => ({ default: m.FAQSection })))
-const FinalCTA = lazy(() => import("./components/sections/FinalCTA").then(m => ({ default: m.FinalCTA })))
-const Footer = lazy(() => import("./components/sections/Footer").then(m => ({ default: m.Footer })))
+import { ProblemSection } from "./components/sections/ProblemSection"
+import { SolutionsSection } from "./components/sections/SolutionsSection"
+import { WebsiteSection } from "./components/sections/WebsiteSection"
+import { AIAgentsSection } from "./components/sections/AIAgentsSection"
+import { ProcessSection } from "./components/sections/ProcessSection"
+import { StructuresSection } from "./components/sections/StructuresSection"
+import { AboutSection } from "./components/sections/AboutSection"
+import { AudienceSection } from "./components/sections/AudienceSection"
+import { FAQSection } from "./components/sections/FAQSection"
+import { FinalCTA } from "./components/sections/FinalCTA"
+import { Footer } from "./components/sections/Footer"
 
 function App() {
+  // Fix Safari bfcache: page goes blank when navigating back
   useEffect(() => {
     const handlePageShow = (event: PageTransitionEvent) => {
       if (event.persisted) {
-        document.body.style.opacity = "1";
-        document.documentElement.style.overflowX = "hidden";
+        document.body.style.opacity = "1"
+        document.documentElement.style.overflowX = "hidden"
       }
-    };
-
-    window.addEventListener("pageshow", handlePageShow);
-    return () => window.removeEventListener("pageshow", handlePageShow);
-  }, []);
+    }
+    window.addEventListener("pageshow", handlePageShow)
+    return () => window.removeEventListener("pageshow", handlePageShow)
+  }, [])
 
   return (
-    <div className="min-h-screen flex flex-col font-inter overflow-x-hidden w-full">
+    <div className="flex flex-col font-inter overflow-x-hidden w-full">
       <Header />
       <main className="flex-1">
         <Hero />
-        <Suspense fallback={<div className="h-32 w-full flex items-center justify-center bg-[#FAFAFA]"><div className="w-6 h-6 border-4 border-evo-action/30 border-t-evo-action rounded-full animate-spin" /></div>}>
-          <ProblemSection />
-          <SolutionsSection />
-          <WebsiteSection />
-          <AIAgentsSection />
-          <ProcessSection />
-          <StructuresSection />
-          <AboutSection />
-          <AudienceSection />
-          <FAQSection />
-          <FinalCTA />
-        </Suspense>
+        <ProblemSection />
+        <SolutionsSection />
+        <WebsiteSection />
+        <AIAgentsSection />
+        <ProcessSection />
+        <StructuresSection />
+        <AboutSection />
+        <AudienceSection />
+        <FAQSection />
+        <FinalCTA />
       </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   )
 }

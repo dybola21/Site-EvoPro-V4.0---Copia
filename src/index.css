@@ -31,16 +31,37 @@
   }
 }
 
-/* ─── Mobile Safety Rules ─────────────────────────────────────────────────── */
+/* ── Mobile Static Mode ──────────────────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Disable smooth scroll on mobile (prevents jank) */
+  * {
+    scroll-behavior: auto !important;
+  }
+
+  /* Force sections to natural height — no min-h-screen gaps */
   section {
     min-height: auto !important;
   }
 
-  /* Framer Motion injeta estilos inline — !important garante visibilidade */
+  /*
+   * Safety net: any element marked data-mobile-safe gets forced to visible.
+   * This overrides Framer Motion inline styles (opacity, transform).
+   * MotionSafe renders a plain <div> on mobile so this is a last resort.
+   */
   [data-mobile-safe="true"] {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
+    transition-delay: 0ms !important;
+    will-change: auto !important;
+  }
+
+  /* Kill heavy GPU effects on mobile */
+  .mobile-no-effects {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
     will-change: auto !important;
   }
 }

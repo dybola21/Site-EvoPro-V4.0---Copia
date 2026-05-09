@@ -3,6 +3,7 @@ import { Container } from "../ui/Container"
 import { getWhatsAppLink } from "../../config/site"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { MotionSafe } from "../ui/MotionSafe"
 import { useIsMobile } from "../../hooks/useIsMobile"
 
 export function SolutionsSection() {
@@ -176,7 +177,10 @@ export function SolutionsSection() {
           <div className="lg:col-span-7 relative pl-0 md:pl-16" ref={rightColumnRef}>
             {/* The Timeline Connection Line (Desktop only) */}
             <div className="hidden md:block absolute left-[22.5px] top-0 bottom-0 w-[1px] bg-white/[0.03] z-0" />
-            <motion.div data-mobile-safe="true" style={{ height: lineHeight }}
+            {/* Timeline line — desktop only, driven by scroll */}
+            <motion.div
+              data-mobile-safe="true"
+              style={{ height: lineHeight }}
               className="hidden md:block absolute left-[22px] top-0 w-[2px] bg-gradient-to-b from-transparent via-evo-action/30 to-evo-action z-10 shadow-[0_0_15px_rgba(37,99,235,0.4)] origin-top rounded-full"
             />
             {/* Leading Edge removed - The user wants the GPS arrow in the Hero section instead */}
@@ -209,8 +213,9 @@ export function SolutionsSection() {
                   </motion.div>
                   
                   {/* The Card */}
-                  <motion.div
-                    initial={isMobile ? false : { opacity: 0, y: 20 }}
+                  {/* The Card — MotionSafe: div on mobile, motion.div on desktop */}
+                  <MotionSafe
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5 }}
@@ -279,7 +284,7 @@ export function SolutionsSection() {
                          {layer.visual}
                       </div>
                     </div>
-                  </motion.div>
+                  </MotionSafe>
                 </div>
               ))}
             </div>
