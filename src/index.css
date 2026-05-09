@@ -5,16 +5,17 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
+  html, body, #root {
     overflow-x: hidden;
     max-width: 100vw;
     width: 100%;
+    min-height: 100%;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply font-inter text-evo-dark bg-evo-offwhite antialiased;
   }
@@ -27,5 +28,19 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* ─── Mobile Safety Rules ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  section {
+    min-height: auto !important;
+  }
+
+  /* Framer Motion injeta estilos inline — !important garante visibilidade */
+  [data-mobile-safe="true"] {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
   }
 }

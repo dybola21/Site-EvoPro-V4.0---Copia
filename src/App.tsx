@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react"
+import { Suspense, lazy, useEffect } from "react"
 import { Header } from "./components/sections/Header"
 import { Hero } from "./components/sections/Hero"
 
@@ -16,12 +16,24 @@ const FinalCTA = lazy(() => import("./components/sections/FinalCTA").then(m => (
 const Footer = lazy(() => import("./components/sections/Footer").then(m => ({ default: m.Footer })))
 
 function App() {
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        document.body.style.opacity = "1";
+        document.documentElement.style.overflowX = "hidden";
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col font-inter overflow-x-hidden w-full">
       <Header />
       <main className="flex-1">
         <Hero />
-        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center bg-[#FAFAFA]"><div className="w-8 h-8 border-4 border-evo-action/30 border-t-evo-action rounded-full animate-spin" /></div>}>
+        <Suspense fallback={<div className="h-32 w-full flex items-center justify-center bg-[#FAFAFA]"><div className="w-6 h-6 border-4 border-evo-action/30 border-t-evo-action rounded-full animate-spin" /></div>}>
           <ProblemSection />
           <SolutionsSection />
           <WebsiteSection />

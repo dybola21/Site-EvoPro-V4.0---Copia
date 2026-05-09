@@ -3,8 +3,10 @@ import { Container } from "../ui/Container"
 import { getWhatsAppLink } from "../../config/site"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
+import { useIsMobile } from "../../hooks/useIsMobile"
 
 export function SolutionsSection() {
+  const isMobile = useIsMobile()
   const containerRef = useRef<HTMLDivElement>(null)
   const rightColumnRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -150,7 +152,7 @@ export function SolutionsSection() {
   ]
 
   return (
-    <section id="solucoes" ref={containerRef} className="py-32 bg-[#050B14] relative overflow-hidden">
+    <section id="solucoes" ref={containerRef} className="py-20 md:py-32 bg-[#050B14] relative overflow-hidden">
       {/* Background Atmosphere */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-evo-action/5 blur-[60px] md:blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-[-10%] w-[500px] h-[500px] bg-white/[0.02] blur-[50px] md:blur-[100px] rounded-full pointer-events-none" />
@@ -160,7 +162,7 @@ export function SolutionsSection() {
           
           {/* Left Side: Sticky Text Content */}
           <div className="lg:col-span-5 relative">
-            <div className="sticky top-32">
+            <div className="lg:sticky lg:top-32">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sora font-extrabold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 text-balance">
                 A estrutura que tira sua empresa do <span className="text-evo-action">improviso digital.</span>
               </h2>
@@ -174,8 +176,7 @@ export function SolutionsSection() {
           <div className="lg:col-span-7 relative pl-0 md:pl-16" ref={rightColumnRef}>
             {/* The Timeline Connection Line (Desktop only) */}
             <div className="hidden md:block absolute left-[22.5px] top-0 bottom-0 w-[1px] bg-white/[0.03] z-0" />
-            <motion.div 
-              style={{ height: lineHeight }}
+            <motion.div data-mobile-safe="true" style={{ height: lineHeight }}
               className="hidden md:block absolute left-[22px] top-0 w-[2px] bg-gradient-to-b from-transparent via-evo-action/30 to-evo-action z-10 shadow-[0_0_15px_rgba(37,99,235,0.4)] origin-top rounded-full"
             />
             {/* Leading Edge removed - The user wants the GPS arrow in the Hero section instead */}
@@ -184,21 +185,21 @@ export function SolutionsSection() {
               {layers.map((layer, index) => (
                 <div key={index} className="relative group">
                   {/* Node on the line (Desktop only) */}
-                  <motion.div 
-                    initial="hidden"
+                  <motion.div
+                    initial={isMobile ? false : "hidden"}
                     whileInView="visible"
                     viewport={{ margin: "0px 0px -50% 0px" }}
                     className={`hidden md:flex absolute -left-[57px] top-10 items-center justify-center z-30 transition-all duration-500
                     ${layer.isGrandFinale ? 'w-10 h-10 -translate-x-1' : 'w-8 h-8'}
                   `}>
-                    <motion.div 
+                    <motion.div
                       variants={{
                         hidden: { borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(5,11,20,0.8)", boxShadow: "0 0 0px rgba(37,99,235,0)" },
                         visible: { borderColor: "rgba(37,99,235,0.5)", backgroundColor: "rgba(10,17,29,1)", boxShadow: "0 0 15px rgba(37,99,235,0.4)" }
                       }}
                       className="absolute inset-0 rounded-full border transition-colors backdrop-blur-sm"
                     />
-                    <motion.div 
+                    <motion.div
                       variants={{
                         hidden: { backgroundColor: "rgba(255,255,255,0.3)", boxShadow: "0 0 0px rgba(255,255,255,0)", scale: 0.5 },
                         visible: { backgroundColor: "rgba(255,255,255,1)", boxShadow: "0 0 12px rgba(255,255,255,1)", scale: 1 }
@@ -208,8 +209,8 @@ export function SolutionsSection() {
                   </motion.div>
                   
                   {/* The Card */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
+                  <motion.div
+                    initial={isMobile ? false : { opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5 }}

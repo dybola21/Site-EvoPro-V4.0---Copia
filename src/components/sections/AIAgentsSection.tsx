@@ -2,8 +2,10 @@ import { MessageSquare, Database, Bell, CheckCircle2 } from "lucide-react"
 import { Container } from "../ui/Container"
 import { SectionHeader } from "../ui/SectionHeader"
 import { motion } from "framer-motion"
+import { useIsMobile } from "../../hooks/useIsMobile"
 
 export function AIAgentsSection() {
+  const isMobile = useIsMobile()
   const steps = [
     {
       icon: MessageSquare,
@@ -59,12 +61,12 @@ export function AIAgentsSection() {
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
+                  <motion.div
+                    initial={isMobile ? false : { opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: step.delay }}
-                    key={index} 
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, delay: isMobile ? 0 : index * 0.15 }}
+                    key={index}
                     className="flex flex-row lg:flex-col items-start lg:items-center group"
                   >
                     {/* Step Icon Node */}
@@ -104,11 +106,11 @@ export function AIAgentsSection() {
           </div>
 
           {/* Minimalist Closing Pill */}
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
+          <motion.div
+            initial={isMobile ? false : { opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.6, delay: isMobile ? 0 : 0.5 }}
             className="mt-16 md:mt-24 flex items-center justify-center relative z-10"
           >
             <div className="inline-flex items-center gap-4 bg-white/[0.02] border border-white/5 backdrop-blur-sm md:backdrop-blur-md px-6 py-3 rounded-full hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">

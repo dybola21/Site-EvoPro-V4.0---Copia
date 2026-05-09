@@ -3,10 +3,13 @@ import { Button } from "../ui/Button"
 import { Container } from "../ui/Container"
 import { getWhatsAppLink } from "../../config/site"
 import { motion } from "framer-motion"
+import { useIsMobile } from "../../hooks/useIsMobile"
 
 export function Hero() {
+  const isMobile = useIsMobile()
+
   return (
-    <section className="relative min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 bg-[#050B14] overflow-hidden flex items-center">
+    <section className="relative pt-28 pb-16 md:min-h-screen md:pt-36 md:pb-24 bg-[#050B14] overflow-hidden flex items-center">
       {/* Base Dark Background */}
       <div className="absolute inset-0 bg-[#050B14] pointer-events-none" />
 
@@ -37,8 +40,8 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
           
           {/* Text Content */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+          <motion.div
+            initial={isMobile ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col items-start"
@@ -80,15 +83,15 @@ export function Hero() {
           </motion.div>
 
           {/* Premium Visual Composition */}
-          <motion.div 
-            initial={{ opacity: 0 }}
+          <motion.div
+            initial={isMobile ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative w-full mx-auto mt-6 lg:mt-0 h-[400px] sm:h-[500px] lg:h-[800px]"
+            className="relative w-full mx-auto mt-6 lg:mt-0 h-[380px] sm:h-[480px] lg:h-[800px]"
           >
-            {/* The inner container is fixed width and scaled down via CSS transforms. 
-                Absolute positioning prevents its unscaled height (700px) from blowing up the flex/grid layout. */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col items-center justify-center scale-[0.55] sm:scale-[0.75] lg:scale-100 origin-top">
+            {/* The inner container is fixed width and scaled down via CSS transforms.
+                Absolute positioning prevents its unscaled height from blowing up the flex/grid layout. */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col items-center justify-center scale-[0.52] sm:scale-[0.72] lg:scale-100 origin-top">
               
               {/* Central connecting hub lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-50 origin-center" viewBox="0 0 500 800">
@@ -139,8 +142,8 @@ export function Hero() {
               </svg>
 
               {/* Node 1: Website/Presence (THE PROTAGONIST) */}
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }}
+              <motion.div
+                initial={isMobile ? false : { y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="absolute top-[0%] left-[-5%] sm:left-[0%] w-[320px] sm:w-[380px] z-30 group"
@@ -218,8 +221,8 @@ export function Hero() {
               </motion.div>
 
               {/* Node 2: AI Agent (Toned Down) */}
-              <motion.div 
-                initial={{ scale: 0.9, opacity: 0 }}
+              <motion.div
+                initial={isMobile ? false : { scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="absolute top-[46%] right-[0%] sm:right-[5%] w-[240px] bg-[#0A1324] border border-white/10 rounded-2xl p-[1px] shadow-2xl z-20 group"
@@ -254,8 +257,8 @@ export function Hero() {
               </motion.div>
 
               {/* Node 3: Notification/Team */}
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }}
+              <motion.div
+                initial={isMobile ? false : { y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="absolute top-[72%] left-[0%] sm:left-[5%] w-[220px] bg-[#0A1324]/95 backdrop-blur-sm md:backdrop-blur-xl border border-evo-success/30 rounded-2xl p-4 shadow-xl md:shadow-[0_20px_40px_-15px_rgba(34,197,94,0.15)] z-30"
@@ -274,8 +277,8 @@ export function Hero() {
               </motion.div>
 
               {/* Node 4: Follow up */}
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }}
+              <motion.div
+                initial={isMobile ? false : { y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
                 className="absolute top-[92%] right-[0%] sm:right-[10%] w-[190px] bg-[#0A1324]/95 backdrop-blur-sm md:backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3.5 shadow-xl md:shadow-2xl z-40 flex items-center gap-3"

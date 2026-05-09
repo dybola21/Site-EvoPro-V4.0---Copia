@@ -30,22 +30,25 @@ export function ProcessSection() {
   ]
 
   return (
-    <section id="processo" className="py-24 bg-white">
+    <section id="processo" className="py-20 md:py-24 bg-white">
       <Container>
-        <SectionHeader 
+        <SectionHeader
           title="Como funciona a criação da sua estrutura digital."
         />
 
-        <div className="mt-16 max-w-3xl mx-auto">
-          <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-evo-light before:to-transparent">
+        <div className="mt-12 md:mt-16 max-w-3xl mx-auto">
+          <div className="flex flex-col gap-6 relative">
+            {/* Vertical line */}
+            <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-gray-200 to-transparent hidden md:block" />
+
             {steps.map((step, index) => (
-              <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-evo-action text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm relative z-10">
+              <div key={index} className="flex items-start gap-5 group">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-evo-action text-white font-bold text-sm shrink-0 shadow-sm relative z-10">
                   {index + 1}
                 </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-evo-offwhite p-6 rounded-2xl border border-evo-light hover:border-evo-action/30 transition-colors shadow-sm">
-                  <h3 className="text-xl font-bold font-sora text-evo-dark mb-2">{step.title}</h3>
-                  <p className="text-evo-muted leading-relaxed">{step.description}</p>
+                <div className="flex-1 bg-evo-offwhite p-5 md:p-6 rounded-2xl border border-evo-light hover:border-evo-action/30 transition-colors shadow-sm">
+                  <h3 className="text-lg md:text-xl font-bold font-sora text-evo-dark mb-1.5">{step.title}</h3>
+                  <p className="text-evo-muted leading-relaxed text-sm md:text-base">{step.description}</p>
                 </div>
               </div>
             ))}
