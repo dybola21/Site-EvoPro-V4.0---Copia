@@ -27,6 +27,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: "h-11 w-11",
     }
 
+    const Comp = asChild ? "div" : "button"
+    
+    if (asChild) {
+      const { children, ...restProps } = props as any;
+      if (React.isValidElement(children)) {
+        return React.cloneElement(children, {
+          className: cn(baseStyles, variants[variant], sizes[size], className, children.props.className),
+          ...restProps,
+          ref: ref as any
+        })
+      }
+    }
+
     return (
       <button
         ref={ref}
