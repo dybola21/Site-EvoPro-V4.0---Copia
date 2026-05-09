@@ -1,7 +1,7 @@
 import { Bot, Globe, Layout, Layers, ArrowRight } from "lucide-react"
 import { Container } from "../ui/Container"
 import { getWhatsAppLink } from "../../config/site"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import { useRef } from "react"
 import { MotionSafe } from "../ui/MotionSafe"
 import { useIsMobile } from "../../hooks/useIsMobile"
@@ -10,12 +10,6 @@ export function SolutionsSection() {
   const isMobile = useIsMobile()
   const containerRef = useRef<HTMLDivElement>(null)
   const rightColumnRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: rightColumnRef,
-    offset: ["start center", "end center"]
-  })
-  
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   const layers = [
     {
       id: "01",
@@ -57,9 +51,9 @@ export function SolutionsSection() {
       description: "Páginas focadas em campanhas, serviços ou ofertas específicas para transformar visitantes em oportunidades reais de conversa.",
       icon: <Layout className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />,
       visual: (
-        <div className="w-full h-full min-h-[160px] bg-[#0A111D] rounded-2xl border border-white/10 p-4 flex flex-col items-center justify-center relative group-hover:border-white/20 transition-colors shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-          {/* The Form */}
-          <div className="w-[90%] bg-white/[0.05] border border-white/15 rounded-xl p-4 flex flex-col gap-3 z-10 backdrop-blur-md shadow-2xl">
+          <div className="w-full h-full min-h-[160px] bg-[#0A111D] rounded-2xl border border-white/10 p-4 flex flex-col items-center justify-center relative group-hover:border-white/20 transition-colors shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+            {/* The Form */}
+            <div className="w-[90%] bg-white/[0.05] border border-white/15 rounded-xl p-4 flex flex-col gap-3 z-10 backdrop-blur-md fx-backdrop shadow-2xl">
             <div className="w-24 h-2 bg-white/50 rounded-full mx-auto mb-2" />
             <div className="w-full h-7 bg-[#050B14] rounded-md shadow-inner border border-white/15 flex items-center px-3">
                <div className="w-10 h-1.5 bg-white/20 rounded-full" />
@@ -123,13 +117,13 @@ export function SolutionsSection() {
           
           <div className="relative w-48 h-48 z-10">
             {/* 3 orbital rings */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm z-20">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm fx-backdrop z-20">
               <Globe className="w-5 h-5 text-white" />
             </div>
-            <div className="absolute bottom-0 left-0 w-12 h-12 rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm z-20">
+            <div className="absolute bottom-0 left-0 w-12 h-12 rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm fx-backdrop z-20">
               <Layout className="w-5 h-5 text-white" />
             </div>
-            <div className="absolute bottom-0 right-0 w-12 h-12 rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm z-20">
+            <div className="absolute bottom-0 right-0 w-12 h-12 rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.1)] backdrop-blur-sm fx-backdrop z-20">
               <Bot className="w-5 h-5 text-white" />
             </div>
             
@@ -155,8 +149,8 @@ export function SolutionsSection() {
   return (
     <section id="solucoes" ref={containerRef} className="py-20 md:py-32 bg-[#050B14] relative overflow-hidden">
       {/* Background Atmosphere */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-evo-action/5 blur-[60px] md:blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-[-10%] w-[500px] h-[500px] bg-white/[0.02] blur-[50px] md:blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-evo-action/5 blur-[60px] md:blur-[120px] fx-heavy-blur rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-[-10%] w-[500px] h-[500px] bg-white/[0.02] blur-[50px] md:blur-[100px] fx-heavy-blur rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">
@@ -178,10 +172,8 @@ export function SolutionsSection() {
             {/* The Timeline Connection Line (Desktop only) */}
             <div className="hidden md:block absolute left-[22.5px] top-0 bottom-0 w-[1px] bg-white/[0.03] z-0" />
             {/* Timeline line — desktop only, driven by scroll */}
-            <motion.div
-              data-mobile-safe="true"
-              style={{ height: lineHeight }}
-              className="hidden md:block absolute left-[22px] top-0 w-[2px] bg-gradient-to-b from-transparent via-evo-action/30 to-evo-action z-10 shadow-[0_0_15px_rgba(37,99,235,0.4)] origin-top rounded-full"
+            <div
+              className="hidden md:block absolute left-[22px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-evo-action/20 to-evo-action/60 z-10 shadow-[0_0_12px_rgba(37,99,235,0.25)] rounded-full"
             />
             {/* Leading Edge removed - The user wants the GPS arrow in the Hero section instead */}
 
@@ -201,7 +193,7 @@ export function SolutionsSection() {
                         hidden: { borderColor: "rgba(255,255,255,0.1)", backgroundColor: "rgba(5,11,20,0.8)", boxShadow: "0 0 0px rgba(37,99,235,0)" },
                         visible: { borderColor: "rgba(37,99,235,0.5)", backgroundColor: "rgba(10,17,29,1)", boxShadow: "0 0 15px rgba(37,99,235,0.4)" }
                       }}
-                      className="absolute inset-0 rounded-full border transition-colors backdrop-blur-sm"
+                      className="absolute inset-0 rounded-full border transition-colors backdrop-blur-sm fx-backdrop"
                     />
                     <motion.div
                       variants={{

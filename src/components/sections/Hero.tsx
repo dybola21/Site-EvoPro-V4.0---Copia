@@ -13,7 +13,7 @@ export function Hero() {
       {/* Abstract Texture Image (Responsive mask and position) */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
-          className="absolute inset-0 bg-no-repeat bg-cover bg-[center_bottom] sm:bg-right lg:bg-[center_right_-20%] opacity-30 mix-blend-screen saturate-50 
+          className="absolute inset-0 bg-no-repeat bg-cover bg-[center_bottom] sm:bg-right lg:bg-[center_right_-20%] opacity-30 mix-blend-screen fx-blend saturate-50 
                      [mask-image:linear-gradient(to_bottom,transparent_0%,transparent_10%,black_60%,black_100%)] 
                      [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,transparent_10%,black_60%,black_100%)] 
                      sm:[mask-image:linear-gradient(to_right,transparent_0%,transparent_20%,black_60%,black_100%)] 
@@ -23,9 +23,9 @@ export function Hero() {
       </div>
 
       {/* Premium Glows */}
-      <div className="absolute top-0 left-[20%] w-[400px] md:w-[800px] h-[300px] md:h-[500px] bg-evo-action/5 blur-[60px] md:blur-[150px] rounded-[100%] pointer-events-none" />
-      <div className="hidden md:block absolute top-[20%] right-[-10%] w-[1000px] h-[800px] bg-evo-action/15 blur-[200px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[10%] w-[400px] md:w-[800px] h-[300px] md:h-[600px] bg-evo-cyan/10 blur-[80px] md:blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-[20%] w-[400px] md:w-[800px] h-[300px] md:h-[500px] bg-evo-action/5 blur-[60px] md:blur-[150px] fx-heavy-blur rounded-[100%] pointer-events-none" />
+      <div className="hidden md:block absolute top-[20%] right-[-10%] w-[1000px] h-[800px] bg-evo-action/15 blur-[200px] fx-heavy-blur rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[10%] w-[400px] md:w-[800px] h-[300px] md:h-[600px] bg-evo-cyan/10 blur-[80px] md:blur-[180px] fx-heavy-blur rounded-full pointer-events-none" />
       
       {/* Subtle Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_40%,transparent_100%)] opacity-30 pointer-events-none" />
@@ -104,7 +104,7 @@ export function Hero() {
                 <circle cx="350" cy="760" r="3" fill="#10B981" />
 
                 {/* Animated Data Packet (Navigation Arrow) */}
-                <g filter="url(#glow-dot)" className="hidden md:block">
+                <g filter="url(#glow-dot)" className="hidden md:block fx-svg-glow">
                   <path d="M-10,-10 L14,0 L-10,10 L-3,0 Z" fill="#06B6D4">
                     <animateMotion dur="4s" repeatCount="indefinite" rotate="auto" path="M 140 120 C 140 260, 380 220, 380 400 L 380 430 C 380 520, 160 500, 160 600 L 160 630 C 160 700, 350 690, 350 760" />
                   </path>
@@ -146,7 +146,7 @@ export function Hero() {
                 className="absolute top-[0%] left-[-5%] sm:left-[0%] w-[320px] sm:w-[380px] z-30 group"
               >
                 {/* External Label - More Prominent */}
-                <div className="flex items-center gap-2 mb-3 ml-1 bg-white/[0.03] backdrop-blur-md border border-white/[0.05] py-1.5 px-3 rounded-full w-fit shadow-lg shadow-black/20">
+                <div className="flex items-center gap-2 mb-3 ml-1 bg-white/[0.03] backdrop-blur-md fx-backdrop border border-white/[0.05] py-1.5 px-3 rounded-full w-fit shadow-lg shadow-black/20">
                   <div className="w-6 h-6 rounded-full bg-evo-action flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.8)] relative">
                     <Globe className="w-3.5 h-3.5 text-white relative z-10" />
                     <div className="absolute inset-0 bg-white/20 rounded-full animate-ping opacity-20"></div>
@@ -210,7 +210,7 @@ export function Hero() {
                   </div>
 
                   {/* Captação Ativa Badge */}
-                  <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-[#050B14] border border-evo-cyan/60 px-3 py-1.5 rounded-md shadow-[0_5px_20px_rgba(6,182,212,0.4)] backdrop-blur-md z-20 group-hover:border-evo-cyan transition-colors">
+                  <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-[#050B14] border border-evo-cyan/60 px-3 py-1.5 rounded-md shadow-[0_5px_20px_rgba(6,182,212,0.4)] backdrop-blur-md fx-backdrop z-20 group-hover:border-evo-cyan transition-colors">
                     <span className="flex h-2 w-2 rounded-full bg-evo-cyan animate-pulse shadow-[0_0_12px_#06B6D4]"></span>
                     <span className="text-[9px] font-extrabold text-evo-cyan uppercase tracking-wider">Captação Ativa</span>
                   </div>
@@ -258,7 +258,7 @@ export function Hero() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="absolute top-[72%] left-[0%] sm:left-[5%] w-[220px] bg-[#0A1324]/95 backdrop-blur-sm md:backdrop-blur-xl border border-evo-success/30 rounded-2xl p-4 shadow-xl md:shadow-[0_20px_40px_-15px_rgba(34,197,94,0.15)] z-30"
+                className="absolute top-[72%] left-[0%] sm:left-[5%] w-[220px] bg-[#0A1324]/95 backdrop-blur-sm md:backdrop-blur-xl fx-backdrop border border-evo-success/30 rounded-2xl p-4 shadow-xl md:shadow-[0_20px_40px_-15px_rgba(34,197,94,0.15)] z-30"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-evo-success/10 border border-evo-success/20 flex items-center justify-center shrink-0">
@@ -278,7 +278,7 @@ export function Hero() {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
-                className="absolute top-[92%] right-[0%] sm:right-[10%] w-[190px] bg-[#0A1324]/95 backdrop-blur-sm md:backdrop-blur-xl border border-white/[0.08] rounded-2xl p-3.5 shadow-xl md:shadow-2xl z-40 flex items-center gap-3"
+                className="absolute top-[92%] right-[0%] sm:right-[10%] w-[190px] bg-[#0A1324]/95 backdrop-blur-sm md:backdrop-blur-xl fx-backdrop border border-white/[0.08] rounded-2xl p-3.5 shadow-xl md:shadow-2xl z-40 flex items-center gap-3"
               >
                 <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4 text-[#10B981]" />

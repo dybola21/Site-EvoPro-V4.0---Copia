@@ -26,6 +26,47 @@ function App() {
     return () => window.removeEventListener("pageshow", handlePageShow)
   }, [])
 
+  // Guardrail: when scroll velocity spikes, temporarily disable heavy GPU effects
+  // to avoid white-screen compositor glitches and frame drops on desktop.
+  useEffect(() => {
+    let lastY = window.scrollY
+    let lastTime = performance.now()
+    let clearClassTimeout: number | undefined
+
+    const disableHeavyFxTemporarily = () => {
+      document.documentElement.classList.add("is-fast-scroll")
+      if (clearClassTimeout) window.clearTimeout(clearClassTimeout)
+      clearClassTimeout = window.setTimeout(() => {
+        document.documentElement.classList.remove("is-fast-scroll")
+      }, 140)
+    }
+
+    const onScroll = () => {
+      const now = performance.now()
+      const y = window.scrollY
+      const dt = now - lastTime
+
+      if (dt > 0) {
+        const velocity = Math.abs(y - lastY) / dt // px per ms
+        // ~2.8px/ms = 2800px/s: high-velocity wheel/touchpad flick
+        if (velocity > 2.8) {
+          disableHeavyFxTemporarily()
+        }
+      }
+
+      lastY = y
+      lastTime = now
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      if (clearClassTimeout) window.clearTimeout(clearClassTimeout)
+      document.documentElement.classList.remove("is-fast-scroll")
+    }
+  }, [])
+
   return (
     <div className="flex flex-col font-inter overflow-x-hidden w-full">
       <Header />
