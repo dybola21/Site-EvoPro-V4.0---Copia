@@ -77,25 +77,18 @@ function App() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <SectionDivider tone="dark" />
+        <SectionDivider tone="light" variant="notch" />
         <ProblemSection />
-        <SectionDivider tone="light" />
         <SolutionsSection />
-        <SectionDivider tone="dark" />
+        <SectionDivider tone="light" variant="notch" />
         <WebsiteSection />
-        <SectionDivider tone="light" />
         <AIAgentsSection />
-        <SectionDivider tone="dark" />
+        <SectionDivider tone="light" variant="notch" />
         <ProcessSection />
-        <SectionDivider tone="light" />
         <StructuresSection />
-        <SectionDivider tone="light" />
         <AboutSection />
-        <SectionDivider tone="light" />
         <AudienceSection />
-        <SectionDivider tone="dark" />
         <FAQSection />
-        <SectionDivider tone="light" />
         <FinalCTA />
       </main>
       <Footer />
