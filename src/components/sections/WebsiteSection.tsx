@@ -56,7 +56,7 @@ export function WebsiteSection() {
             </div>
           </div>
 
-          <div className="relative h-[650px] lg:h-[700px] w-full flex items-center justify-center">
+          <div className="relative h-[550px] lg:h-[700px] w-full flex items-center justify-center">
             {/* Ambient glow behind the mockup */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[360px] lg:max-w-[420px] h-[480px] lg:h-[560px] bg-evo-action/5 blur-[40px] md:blur-[100px] rounded-full pointer-events-none" />
 
@@ -170,7 +170,7 @@ export function WebsiteSection() {
           </div>
 
           {/* Mobile Button - Shown only on small screens below the mockup */}
-          <div className="lg:hidden w-full flex justify-center -mt-8">
+          <div className="lg:hidden w-full flex justify-center mt-2 relative z-20">
             <a
               href={getWhatsAppLink("Olá! Vi o site da EvoPro e quero saber mais sobre criação de site profissional para minha empresa.")}
               target="_blank"

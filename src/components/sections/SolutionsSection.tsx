@@ -161,7 +161,7 @@ export function SolutionsSection() {
           {/* Left Side: Sticky Text Content */}
           <div className="lg:col-span-5 relative">
             <div className="sticky top-32">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-sora font-extrabold text-white leading-[1.1] tracking-tight mb-8 text-balance">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sora font-extrabold text-white leading-[1.1] tracking-tight mb-6 md:mb-8 text-balance">
                 A estrutura que tira sua empresa do <span className="text-evo-action">improviso digital.</span>
               </h2>
               <p className="text-lg md:text-xl text-white/50 font-light leading-relaxed mb-10 text-balance">
@@ -171,24 +171,24 @@ export function SolutionsSection() {
           </div>
 
           {/* Right Side: Stacked Architecture Layers */}
-          <div className="lg:col-span-7 relative pl-10 md:pl-16" ref={rightColumnRef}>
-            {/* The Timeline Connection Line */}
-            <div className="absolute left-[8.5px] md:left-[22.5px] top-0 bottom-0 w-[1px] bg-white/[0.03] z-0" />
+          <div className="lg:col-span-7 relative pl-0 md:pl-16" ref={rightColumnRef}>
+            {/* The Timeline Connection Line (Desktop only) */}
+            <div className="hidden md:block absolute left-[22.5px] top-0 bottom-0 w-[1px] bg-white/[0.03] z-0" />
             <motion.div 
               style={{ height: lineHeight }}
-              className="absolute left-[8px] md:left-[22px] top-0 w-[2px] bg-gradient-to-b from-transparent via-evo-action/30 to-evo-action z-10 shadow-[0_0_15px_rgba(37,99,235,0.4)] origin-top rounded-full"
+              className="hidden md:block absolute left-[22px] top-0 w-[2px] bg-gradient-to-b from-transparent via-evo-action/30 to-evo-action z-10 shadow-[0_0_15px_rgba(37,99,235,0.4)] origin-top rounded-full"
             />
             {/* Leading Edge removed - The user wants the GPS arrow in the Hero section instead */}
 
             <div className="flex flex-col gap-8 relative z-20">
               {layers.map((layer, index) => (
                 <div key={index} className="relative group">
-                  {/* Node on the line */}
+                  {/* Node on the line (Desktop only) */}
                   <motion.div 
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ margin: "0px 0px -50% 0px" }}
-                    className={`absolute -left-[47px] md:-left-[57px] top-10 flex items-center justify-center z-30 transition-all duration-500
+                    className={`hidden md:flex absolute -left-[57px] top-10 items-center justify-center z-30 transition-all duration-500
                     ${layer.isGrandFinale ? 'w-10 h-10 -translate-x-1' : 'w-8 h-8'}
                   `}>
                     <motion.div 
@@ -209,12 +209,12 @@ export function SolutionsSection() {
                   
                   {/* The Card */}
                   <motion.div 
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    className={`relative rounded-3xl overflow-hidden transition-all duration-500
-                      ${layer.isGrandFinale ? 'p-8 md:p-10 border-2 border-evo-action/40 bg-gradient-to-br from-[#0A111D] to-[#0A1A3A] shadow-xl md:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)]' : 'p-6 md:p-8 bg-gradient-to-br from-[#0A111D] to-[#0D1626] border border-white/5 hover:border-white/15 shadow-md md:shadow-lg hover:shadow-xl'}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5 }}
+                    className={`relative rounded-2xl md:rounded-3xl overflow-hidden transition-all duration-500
+                      ${layer.isGrandFinale ? 'p-6 sm:p-8 md:p-10 border-2 border-evo-action/40 bg-gradient-to-br from-[#0A111D] to-[#0A1A3A] shadow-xl md:shadow-[0_20px_60px_-15px_rgba(37,99,235,0.3)]' : 'p-5 sm:p-6 md:p-8 bg-gradient-to-br from-[#0A111D] to-[#0D1626] border border-white/5 hover:border-white/15 shadow-md md:shadow-lg hover:shadow-xl'}
                     `}
                   >
                     {/* Subtle top spotlight */}
@@ -248,7 +248,7 @@ export function SolutionsSection() {
                             {layer.icon}
                           </div>
                           <h3 className={`font-sora tracking-tight leading-[1.1]
-                            ${layer.isGrandFinale ? 'text-2xl md:text-3xl xl:text-[36px] text-white font-black' : 'text-xl md:text-2xl text-white/90 font-bold'}
+                            ${layer.isGrandFinale ? 'text-xl sm:text-2xl md:text-3xl xl:text-[36px] text-white font-black' : 'text-lg sm:text-xl md:text-2xl text-white/90 font-bold'}
                           `}>
                             {layer.service}
                           </h3>

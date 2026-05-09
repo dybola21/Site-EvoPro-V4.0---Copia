@@ -35,7 +35,7 @@ export function StructuresSection() {
   ]
 
   return (
-    <section className="py-32 bg-[#FAFAFA] border-t border-gray-200/50">
+    <section className="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-200/50">
       <Container>
         <div className="max-w-4xl">
           <SectionHeader 
@@ -45,7 +45,7 @@ export function StructuresSection() {
           />
         </div>
 
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20">
           {/* 
             Mobile: Scroll horizontal com snap 
             Desktop: Grid 4 colunas 
@@ -78,8 +78,8 @@ export function StructuresSection() {
                       <img 
                         src={project.image} 
                         alt={`Projeto ${project.name}`} 
-                        className="w-full h-auto block" 
-                        loading="lazy"
+                        className="w-full h-auto block bg-gray-100 min-h-[360px]" 
+                        loading={index === 0 ? "eager" : "lazy"}
                         decoding="async"
                         width="1132"
                         height="4573"

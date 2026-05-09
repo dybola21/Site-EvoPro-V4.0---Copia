@@ -32,7 +32,7 @@ export function AIAgentsSection() {
   ]
 
   return (
-    <section id="agentes-ia" className="py-32 bg-[#0A0D14] overflow-hidden relative">
+    <section id="agentes-ia" className="py-20 md:py-32 bg-[#0A0D14] overflow-hidden relative">
       {/* Decorative background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-evo-action/5 rounded-full blur-[60px] md:blur-[150px] pointer-events-none" />
 
@@ -45,7 +45,7 @@ export function AIAgentsSection() {
           />
         </div>
 
-        <div className="mt-24 relative z-10 max-w-6xl mx-auto">
+        <div className="mt-16 md:mt-24 relative z-10 max-w-6xl mx-auto">
           
           <div className="relative">
             
@@ -55,7 +55,7 @@ export function AIAgentsSection() {
             {/* Elegant Background Connection Line (Mobile) */}
             <div className="lg:hidden absolute top-[32px] bottom-[32px] left-[31px] w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent z-0" />
 
-            <div className="grid lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-8 relative z-10">
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
@@ -109,7 +109,7 @@ export function AIAgentsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-24 flex items-center justify-center relative z-10"
+            className="mt-16 md:mt-24 flex items-center justify-center relative z-10"
           >
             <div className="inline-flex items-center gap-4 bg-white/[0.02] border border-white/5 backdrop-blur-sm md:backdrop-blur-md px-6 py-3 rounded-full hover:border-white/10 hover:bg-white/[0.04] transition-all duration-300">
               <div className="relative flex items-center justify-center w-3 h-3">

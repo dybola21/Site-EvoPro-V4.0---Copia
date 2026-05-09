@@ -23,9 +23,9 @@ export function Hero() {
       </div>
 
       {/* Premium Glows */}
-      <div className="absolute top-0 left-[20%] w-[800px] h-[500px] bg-evo-action/5 blur-[60px] md:blur-[150px] rounded-[100%] pointer-events-none" />
-      <div className="absolute top-[20%] right-[-10%] w-[1000px] h-[800px] bg-evo-action/15 blur-[80px] md:blur-[200px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[10%] w-[800px] h-[600px] bg-evo-cyan/10 blur-[80px] md:blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-[20%] w-[400px] md:w-[800px] h-[300px] md:h-[500px] bg-evo-action/5 blur-[60px] md:blur-[150px] rounded-[100%] pointer-events-none" />
+      <div className="hidden md:block absolute top-[20%] right-[-10%] w-[1000px] h-[800px] bg-evo-action/15 blur-[200px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[10%] w-[400px] md:w-[800px] h-[300px] md:h-[600px] bg-evo-cyan/10 blur-[80px] md:blur-[180px] rounded-full pointer-events-none" />
       
       {/* Subtle Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_40%,transparent_100%)] opacity-30 pointer-events-none" />
@@ -84,11 +84,11 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative w-full mx-auto mt-6 lg:mt-0 h-[480px] min-[400px]:h-[550px] sm:h-[650px] lg:h-[800px]"
+            className="relative w-full mx-auto mt-6 lg:mt-0 h-[400px] sm:h-[500px] lg:h-[800px]"
           >
             {/* The inner container is fixed width and scaled down via CSS transforms. 
                 Absolute positioning prevents its unscaled height (700px) from blowing up the flex/grid layout. */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[700px] lg:h-[800px] flex flex-col items-center justify-center scale-[0.65] min-[400px]:scale-[0.75] sm:scale-[0.85] lg:scale-100 origin-top">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col items-center justify-center scale-[0.55] sm:scale-[0.75] lg:scale-100 origin-top">
               
               {/* Central connecting hub lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-50 origin-center" viewBox="0 0 500 800">
