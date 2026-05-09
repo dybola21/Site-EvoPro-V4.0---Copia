@@ -12,6 +12,7 @@ import { AudienceSection } from "./components/sections/AudienceSection"
 import { FAQSection } from "./components/sections/FAQSection"
 import { FinalCTA } from "./components/sections/FinalCTA"
 import { Footer } from "./components/sections/Footer"
+import { SectionDivider } from "./components/ui/SectionDivider"
 
 function App() {
   // Fix Safari bfcache: page goes blank when navigating back
@@ -76,15 +77,25 @@ function App() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <SectionDivider tone="dark" />
         <ProblemSection />
+        <SectionDivider tone="light" />
         <SolutionsSection />
+        <SectionDivider tone="dark" />
         <WebsiteSection />
+        <SectionDivider tone="light" />
         <AIAgentsSection />
+        <SectionDivider tone="dark" />
         <ProcessSection />
+        <SectionDivider tone="light" />
         <StructuresSection />
+        <SectionDivider tone="light" />
         <AboutSection />
+        <SectionDivider tone="light" />
         <AudienceSection />
+        <SectionDivider tone="dark" />
         <FAQSection />
+        <SectionDivider tone="light" />
         <FinalCTA />
       </main>
       <Footer />

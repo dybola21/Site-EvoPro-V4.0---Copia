@@ -218,7 +218,7 @@ export function Hero() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute top-[46%] right-[0%] sm:right-[5%] w-[240px] bg-[#0A1324] border border-white/10 rounded-2xl p-[1px] shadow-2xl z-20 group"
+                className="absolute top-[44%] right-[-2%] sm:right-[5%] w-[240px] bg-[#0A1324] border border-white/10 rounded-2xl p-[1px] shadow-2xl z-50 group"
               >
                 {/* Glow effect - Subtle now */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-evo-cyan/20 to-transparent rounded-2xl opacity-10 group-hover:opacity-20 blur transition-opacity duration-500" />
