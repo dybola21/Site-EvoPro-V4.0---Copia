@@ -8,7 +8,7 @@ export function FinalCTA() {
   return (
     <section className="py-24 bg-evo-deep relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-evo-action/20 blur-[60px] md:blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-evo-action/20 blur-[60px] md:blur-[150px] rounded-full pointer-events-none mobile-hide-decor" />
 
       <Container className="relative z-10 text-center">
         <SectionHeader 

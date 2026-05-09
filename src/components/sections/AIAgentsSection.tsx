@@ -34,7 +34,7 @@ export function AIAgentsSection() {
   return (
     <section id="agentes-ia" className="py-20 md:py-32 bg-[#0A0D14] overflow-hidden relative">
       {/* Decorative background ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-evo-action/5 rounded-full blur-[60px] md:blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-evo-action/5 rounded-full blur-[60px] md:blur-[150px] pointer-events-none mobile-hide-decor" />
 
       <Container>
         <div className="max-w-4xl mx-auto">

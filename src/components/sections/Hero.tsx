@@ -11,7 +11,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-[#050B14] pointer-events-none" />
 
       {/* Abstract Texture Image (Responsive mask and position) */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none mobile-hide-decor">
         <div 
           className="absolute inset-0 bg-no-repeat bg-cover bg-[center_bottom] sm:bg-right lg:bg-[center_right_-20%] opacity-30 mix-blend-screen fx-blend saturate-50 
                      [mask-image:linear-gradient(to_bottom,transparent_0%,transparent_10%,black_60%,black_100%)] 
@@ -23,9 +23,9 @@ export function Hero() {
       </div>
 
       {/* Premium Glows */}
-      <div className="absolute top-0 left-[20%] w-[400px] md:w-[800px] h-[300px] md:h-[500px] bg-evo-action/5 blur-[60px] md:blur-[150px] fx-heavy-blur rounded-[100%] pointer-events-none" />
-      <div className="hidden md:block absolute top-[20%] right-[-10%] w-[1000px] h-[800px] bg-evo-action/15 blur-[200px] fx-heavy-blur rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[10%] w-[400px] md:w-[800px] h-[300px] md:h-[600px] bg-evo-cyan/10 blur-[80px] md:blur-[180px] fx-heavy-blur rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-[20%] w-[400px] md:w-[800px] h-[300px] md:h-[500px] bg-evo-action/5 blur-[60px] md:blur-[150px] fx-heavy-blur rounded-[100%] pointer-events-none mobile-hide-decor" />
+      <div className="hidden md:block absolute top-[20%] right-[-10%] w-[1000px] h-[800px] bg-evo-action/15 blur-[200px] fx-heavy-blur rounded-full pointer-events-none mobile-hide-decor" />
+      <div className="absolute bottom-[-10%] right-[10%] w-[400px] md:w-[800px] h-[300px] md:h-[600px] bg-evo-cyan/10 blur-[80px] md:blur-[180px] fx-heavy-blur rounded-full pointer-events-none mobile-hide-decor" />
       
       {/* Subtle Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black_40%,transparent_100%)] opacity-30 pointer-events-none" />

@@ -58,7 +58,7 @@ export function WebsiteSection() {
 
           <div className="relative h-[550px] lg:h-[700px] w-full flex items-center justify-center">
             {/* Ambient glow behind the mockup */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[360px] lg:max-w-[420px] h-[480px] lg:h-[560px] bg-evo-action/5 blur-[40px] md:blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[360px] lg:max-w-[420px] h-[480px] lg:h-[560px] bg-evo-action/5 blur-[40px] md:blur-[100px] rounded-full pointer-events-none mobile-hide-decor" />
 
             {/* The CSS Mockup */}
             <div className="relative z-10 w-full max-w-[340px] lg:max-w-[380px] bg-[#050B14] rounded-[2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3),_0_0_60px_rgba(37,99,235,0.08)] border border-white/10 overflow-hidden flex flex-col group transform transition-transform hover:-translate-y-2 duration-500">
@@ -81,8 +81,8 @@ export function WebsiteSection() {
               {/* Mockup Body - Mini Site */}
               <div className="relative flex-1 p-6 lg:p-8 flex flex-col pt-8 overflow-hidden h-[480px] lg:h-[600px] bg-[#050B14]">
                 {/* Background effects */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-evo-action/10 blur-2xl md:blur-[60px] rounded-full pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-evo-cyan/10 blur-2xl md:blur-[50px] rounded-full pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-evo-action/10 blur-2xl md:blur-[60px] rounded-full pointer-events-none mobile-hide-decor" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-evo-cyan/10 blur-2xl md:blur-[50px] rounded-full pointer-events-none mobile-hide-decor" />
 
                 {/* Subtle Grid */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />

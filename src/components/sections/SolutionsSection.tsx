@@ -149,8 +149,8 @@ export function SolutionsSection() {
   return (
     <section id="solucoes" ref={containerRef} className="py-20 md:py-32 bg-[#050B14] relative overflow-hidden">
       {/* Background Atmosphere */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-evo-action/5 blur-[60px] md:blur-[120px] fx-heavy-blur rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-[-10%] w-[500px] h-[500px] bg-white/[0.02] blur-[50px] md:blur-[100px] fx-heavy-blur rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-evo-action/5 blur-[60px] md:blur-[120px] fx-heavy-blur rounded-full pointer-events-none mobile-hide-decor" />
+      <div className="absolute bottom-0 left-[-10%] w-[500px] h-[500px] bg-white/[0.02] blur-[50px] md:blur-[100px] fx-heavy-blur rounded-full pointer-events-none mobile-hide-decor" />
 
       <Container className="relative z-10">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-20">

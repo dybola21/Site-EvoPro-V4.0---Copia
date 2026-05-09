@@ -29,6 +29,10 @@ function App() {
   // Guardrail: when scroll velocity spikes, temporarily disable heavy GPU effects
   // to avoid white-screen compositor glitches and frame drops on desktop.
   useEffect(() => {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      return
+    }
+
     let lastY = window.scrollY
     let lastTime = performance.now()
     let clearClassTimeout: number | undefined
